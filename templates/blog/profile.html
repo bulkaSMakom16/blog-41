@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<h1>User Profile</h1>
+
+<div class="profile-info">
+    <h2>Profile Information</h2>
+    {% if avatar_url %}
+        <img src="{{ avatar_url }}" alt="User Avatar" style="max-width: 150px; max-height: 150px;">
+    {% else %}
+        <p>No avatar uploaded.</p>
+    {% endif %}
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+</div>
+
+<div class="profile-actions">
+    <h2>Actions</h2>
+    <a href="{% url 'password_change' %}">Change Password</a>
+</div>
+{% endblock %}
